@@ -20,7 +20,8 @@
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
-const pk = fs.readFileSync(".dev").toString().trim();
+// Comment out these lines for local development - .dev file doesn't exist
+// const pk = fs.readFileSync(".dev").toString().trim();
 // const mnemonic = fs.readFileSync(".test").toString().trim();
 
 module.exports = {
@@ -40,13 +41,14 @@ module.exports = {
       port: 7545,
       network_id: "*"
     },
-    ethereum: {
-      provider: () => new HDWalletProvider({ privateKeys: [pk], providerOrUrl: `URL_HERE` }),
-      network_id: 1,
-      confirmations: 2,
-      timeoutBlocks: 200,
-      skipDryRun: true
-    },
+    // Comment out ethereum network since pk variable is not defined
+    // ethereum: {
+    //   provider: () => new HDWalletProvider({ privateKeys: [pk], providerOrUrl: `URL_HERE` }),
+    //   network_id: 1,
+    //   confirmations: 2,
+    //   timeoutBlocks: 200,
+    //   skipDryRun: true
+    // },
   },
 
   // Set default mocha options here, use special reporters etc.
